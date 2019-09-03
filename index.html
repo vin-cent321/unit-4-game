@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Persona 5</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-md-12" id="title-image">
+                    <img src="assets/images/logo.png" alt="Persona5" class="img-thumbnail" id="logo">
+                </div>
+            </div>
+        </header>
+        <div class="row" id="characters-selection">
+            <div class="col-md icons _0" value="Joker">
+                <img src="assets/images/jokericon.png" alt="Joker"  class="imgicon" id="icon0">
+            </div>
+            <div class="col-md icons _1" value="Ryuji">
+                <img src="assets/images/ryujiicon.png" alt="Ryuji" class="imgicon" id="icon1">
+            </div>
+
+            <div class="col-md icons _2" value="Ann">
+                <img src="assets/images/annicon.png" alt="Ann" class="imgicon" id="icon2">
+            </div>
+            <div class="col-md icons _3" value="Morgana">
+                <img src="assets/images/morgana.png" alt="Morgana" class="imgicon" id="icon3">
+            </div>
+        </div>
+
+        <div class="row" id="enemies">
+            <div class="col-md move" id="enemy0"></div>
+            <div class="col-md move" id="enemy1"></div>
+            <div class="col-md move" id="enemy2"></div>
+            <div class="col-md move" id="enemy3"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5" id="yourChar">
+            Your Character:</br>
+        </div>
+        <div class="col-md-2">VS</div>
+        <div class="col-md-5" id="defender">
+            Your Opponent:</br>
+        </div>
+    </div>
+
+
+    </div>
+</body>
+
+</html>
