@@ -25,18 +25,26 @@
             </div>
         </header>
         <div class="row" id="characters-selection">
-            <div class="col-md icons _0" value="Joker">
-                <img src="assets/images/jokericon.png" alt="Joker"  class="imgicon" id="icon0">
+            <div class="col-md icons _0" value="Joke">
+                <img src="assets/images/jokericon.png" alt="Joker" class="imgicon" id="icon0">
+                <p class="name jokername"></p>
+                <p class="HP jokerhp"></p>
             </div>
-            <div class="col-md icons _1" value="Ryuji">
+            <div class="col-md icons _1" value="Ryu">
                 <img src="assets/images/ryujiicon.png" alt="Ryuji" class="imgicon" id="icon1">
+                <p class="name ryujiname"></p>
+                <p class="HP ryujihp"></p>
             </div>
 
-            <div class="col-md icons _2" value="Ann">
+            <div class="col-md icons _2" value="At">
                 <img src="assets/images/annicon.png" alt="Ann" class="imgicon" id="icon2">
+                <p class="name annname"></p>
+                <p class="HP annhp"></p>
             </div>
-            <div class="col-md icons _3" value="Morgana">
+            <div class="col-md icons _3" value="Morg">
                 <img src="assets/images/morgana.png" alt="Morgana" class="imgicon" id="icon3">
+                <p class="name morgananame"></p>
+                <p class="HP morganahp"></p>
             </div>
         </div>
 
@@ -52,7 +60,12 @@
         <div class="col-md-5" id="yourChar">
             Your Character:</br>
         </div>
-        <div class="col-md-2">VS</div>
+        <div class="col-md-2">
+            VS</br>
+            <button type="button" class="attackbtn btn-secondary btn-lg">Attack!</button>
+            <p class="youAttacked"></p>
+            <p class="attackedBack"></p>
+        </div>
         <div class="col-md-5" id="defender">
             Your Opponent:</br>
         </div>
