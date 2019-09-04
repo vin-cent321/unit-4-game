@@ -1,186 +1,196 @@
 //Creating an object array of characters and their values (name,hitpoints,attack,counter)
-
-var myChar = "";
-var myDef = "";
-var YourCharacter;
-var YourDefender;
-var attack;
-var defend;
-var attackcharacter;
-var attackerHP;
-var attackerAP;
-var attackerCAP;
-var attackerFN
-var defendcharacter;
-var defenderHP;
-var defenderAP;
-var defenderCAP;
-var defenderFN;
-
-function reset() {
+$(document).ready(function () {
 
     var myChar = "";
     var myDef = "";
+    var YourCharacter;
+    var YourDefender;
 
-    characters.Joke.healthPoints = 180;
-    characters.Ryu.healthPoints = 150;
-    characters.At.healthPoints = 100;
-    characters.Morg.healthPoints = 120;
+    function reset() {
 
-    characters.Joke.attack = 10;
-    characters.Ryu.attack = 12;
-    characters.At.attack = 10;
-    characters.Morg.attack = 8;
+        $(".restartbtn").hide();
+        $(".attackbtn").show();
 
-    $(".jokerhp").html(characters.Joke.healthPoints);
-    $(".ryujihp").html(characters.Ryu.healthPoints);
-    $(".annhp").html(characters.At.healthPoints);
-    $(".morganahp").html(characters.Morg.healthPoints);
+        characters.Joker.healthPoints = 180;
+        characters.Ryuji.healthPoints = 150;
+        characters.Ann.healthPoints = 100;
+        characters.Morgana.healthPoints = 120;
 
-    $(".jokername").html(characters.Joke.fullname);
-    $(".ryujiname").html(characters.Ryu.fullname);
-    $(".annname").html(characters.At.fullname);
-    $(".morgananame").html(characters.Morg.fullname);
+        characters.Joker.attackPW = 10;
+        characters.Ryuji.attackPW = 15;
+        characters.Ann.attackPW = 8;
+        characters.Morgana.attackPW = 10;
 
-};
+        $(".Jokerhp").html(characters.Joker.healthPoints);
+        $(".Ryujihp").html(characters.Ryuji.healthPoints);
+        $(".Annhp").html(characters.Ann.healthPoints);
+        $(".Morganahp").html(characters.Morgana.healthPoints);
 
-var characters = {
+        $(".jokername").html(characters.Joker.name);
+        $(".ryujiname").html(characters.Ryuji.name);
+        $(".annname").html(characters.Ann.name);
+        $(".morgananame").html(characters.Morgana.name);
 
-    Joke: {
-        name: 'Joke',
-        fullname: 'Joker',
-        healthpoints: 180,
-        attack: 10,
-        counter: 10,
-    },
+    };
 
-    Morg: {
-        name: 'Morg',
-        fullname: 'Morgana',
-        healthpoints: 120,
-        attack: 10,
-        counter: 10,
-    },
+    var characters = {
 
-    Ryu: {
-        name: 'Ryu',
-        fullname: 'Ryuji',
-        healthpoints: 150,
-        attack: 10,
-        counter: 10,
-    },
+        Joker : {
+            name: 'Joker',
+            healthPoints: 180,
+            attackPW: 10,
+            counter: 15,
+        },
 
-    At: {
-        name: 'At',
-        fullname: 'Ann',
-        healthpoints: 100,
-        attack: 10,
-        counter: 10,
-    }
+        Morgana : {
+            name: 'Morgana',
+            healthPoints: 120,
+            attackPW: 10,
+            counter: 8,
+        },
 
-};
+        Ryuji : {
+            name: 'Ryuji',
+            healthPoints: 150,
+            attackPW: 15,
+            counter: 8,
+        },
 
-$(document).ready(function () {
-            reset();
+        Ann : {
+            name: 'Ann',
+            healthPoints: 100,
+            attackPW: 8,
+            counter: 12,
+        }
 
-            $(".icons").click(function () {
+    };
 
-                if (myChar == "") {
-                    $(this).appendTo("#yourChar");
-                    myChar = $(this);
-                    YourCharacter = $(myChar).attr("value");
-                }
+    reset();
 
-                if (YourCharacter == characters.Joke.name) {
-                    attackerHP = characters.Joke.healthPoints;
-                    attackerAP = characters.Joke.attack;
-                    attackerCAP = characters.Joke.counter;
-                    attackerFN = characters.Joke.fullname;
-                    attack = characters.Joke;
-                } else if (YourCharacter == characters.Ryu.name) {
-                    attackerHP = characters.Ryu.healthPoints;
-                    attackerAP = characters.Ryu.attack;
-                    attackerCAP = characters.Ryu.counter;
-                    attackerFN = characters.Ryu.fullname;
-                    attack = characters.Ryu;
-                } else if (YourCharacter == characters.At.name) {
-                    attackerHP = characters.At.healthPoints;
-                    attackerAP = characters.At.attack;
-                    attackerCAP = characters.At.counter;
-                    attackerFN = characters.At.fullname;
-                    attack = characters.At;
-                } else if (YourCharacter == characters.Morg.name) {
-                    attackerHP = characters.Morg.healthPoints;
-                    attackerAP = characters.Morg.attack;
-                    attackerCAP = characters.Morg.counter;
-                    attackerFN = characters.Morg.fullname;
-                    attack = characters.Morg;
-                }
+    $(".icons").click(function () {
 
-                for (var i = 0; i < 4; i++) {
-                    $("._" + [i]).not(myChar).appendTo("#enemy" + [i]);
-                }
+        if (myChar == "") {
+            $(this).appendTo("#yourChar");
+            myChar = $(this);
+            YourCharacter = $(myChar).attr("value");
+            console.log(YourCharacter);
 
-                $("#characters-selection").hide();
+        };
 
+        if (YourCharacter == characters.Joker) {
+
+        } else if (YourCharacter == characters.Ryuji) {
+
+        } else if (YourCharacter == characters.Ann) {
+
+        } else if (YourCharacter == characters.Morgana) {
+
+        }
+        for (var i = 0; i < 4; i++) {
+            $("._" + [i]).not(myChar).appendTo("#enemy" + [i]);
+        }
+
+        $("#characters-selection").hide();
+
+    });
+
+    $(".move").click(function () {
+
+        // if (myDef === "") {
+        // clones the chosen character to "Defender"
+        // moves that character to the "Defender" section on the page.
+        $(this).appendTo("#defender");
+        myDef = $(this);
+        YourDefender = $(myDef).children().attr("value");
+        console.log(YourDefender);
+
+        $(".youDefeated").empty();
+
+        if (YourDefender == characters.Joker) {
+            YourDefender.healthPoints = characters.Joker.healthPoints;
+
+        } else if (YourDefender == characters.Ryuji) {
+
+        } else if (YourDefender == characters.Ann) {
+
+        } else if (YourDefender == characters.Morgana) {
+
+        }
+
+        console.log(YourDefender.healthPoints);
+
+    });
+
+    $(".attackbtn").click(function () {
+
+        if ($("#defender").children().length == 0) {
+            $(".noEnemy").html("No enemy here.");
+        }
+
+        if ((YourCharacter.healthPoints > 1) || (YourDefender.healthPoints > 1)) {
+
+            YourCharacter.healthPoints = (YourCharacter.healthPoints - YourDefender.counter);
+
+            $("." + YourCharacter + "hp").html(YourCharacter.healthPoints);
+
+            $(".youAttacked").html("You attacked " + YourDefender.name + " for " + YourCharacter.attackPW + " damage.");
+
+            YourDefender.healthPoints = (YourDefender.healthPoints - YourCharacter.attackPW);
+
+            $(".attackedBack").html(YourDefender.name + " attacked you back for " + YourDefender.counter + " damage.");
+
+            $("." + YourDefender + "hp").html(YourDefender.healthPoints);
+
+            YourCharacter.attackPW = (YourCharacter.attackPW + YourCharacter.attackPW);
+
+        };
+
+        if (YourDefender.healthPoints <= 0) {
+
+            $(".youAttacked").empty();
+            $(".attackedBack").empty();
+            $(".youDefeated").html("You have defeated " + YourDefender.name + ", choose your next opponent!");
+            $("#defender").empty();
+
+        }
+
+        if ($(".move").children().length == 0) {
+
+            // clear out all the other text and the player won
+            $(".youAttacked").empty();
+            $(".attackedBack").empty();
+            $(".youDefeated").empty();
+            $(".youWon").html("You Won! Congratulations!");
+
+            $(".attackbtn").hide();
+            // show the restart button 
+            $(".restartbtn").show();
+
+            // restart the game when you press the button
+            $(".restartbtn").click(function () {
+                reset();
+            })
+
+        }
+
+        // character has no health you lose
+        if (YourCharacter.healthPoints <= 0) {
+
+            $(".restartbtn").show();
+
+            $(".attackbtn").hide();
+
+            $(".youAttacked").empty();
+            $(".attackedBack").empty();
+            $(".youDefeated").empty();
+            $(".youLose").html("GAME OVER!")
+
+            $(".restartbtn").click(function () {
+                reset();
             });
 
-            $(".move").click(function () {
+        }
 
-                if (myDef === "") {
-                    // clones the chosen character to "Defender"
-                    // moves that character to the "Defender" section on the page.
-                    $(this).appendTo("#defender");
-                    myDef = $(this);
-                    YourDefender = $(myDef).children().attr("value");
-                    
+    });
 
-                    if (YourDefender == characters.Joke.name) {
-                        defenderHP = characters.Joke.healthPoints;
-                        defenderAP = characters.Joke.attack;
-                        defenderCAP = characters.Joke.counter;
-                        defenderFN = characters.Joke.fullname;
-                        defend = characters.Joke;
-                    } else if (YourDefender == characters.Ryu.name) {
-                        defenderHP = characters.Ryu.healthPoints;
-                        defenderAP = characters.Ryu.attack;
-                        defenderCAP = characters.Ryu.counter;
-                        defenderFN = characters.Ryu.fullname;
-                        defend = characters.Ryu;
-                    } else if (YourDefender == characters.At.name) {
-                        defenderHP = characters.At.healthPoints;
-                        defenderAP = characters.At.attack;
-                        defenderCAP = characters.At.counter;
-                        defenderFN = characters.At.fullname;
-                        defend = characters.At;
-                    } else if (YourDefender == characters.Morg.name) {
-                        defenderHP = characters.Morg.healthPoints;
-                        defenderAP = characters.Morg.attack;
-                        defenderCAP = characters.Morg.counter;
-                        defenderFN = characters.Morg.fullname;
-                        defend = characters.Morg;
-                    }
-                }
-            });
-
-            $(".attackbtn").click(function () {
-
-                    if (!(attackerHP < 1) || !(defenderHP < 1)) {
-
-                        attackerHP = (attackerHP - defenderCAP);
-
-                        $("." + YourCharacter).html(attackerHP);
-
-                        $(".youAttacked").html("You attacked " + defenderFN + " for " + attackerAP + " damage.");
-
-                        defenderHP = (defenderHP - attackerAP);
-
-                        $(".attackedBack").html(defenderFN + " attacked you back for " + defenderCAP + " damage.");
-                        
-                        $("." + YourDefender).html(defenderHP);
-                        console.log(attackerHP);
-                        console.log(defenderHP);
-                    };
-                    });
-
-            });
+});
