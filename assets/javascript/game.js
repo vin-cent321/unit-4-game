@@ -77,47 +77,78 @@ $(document).ready(function () {
 
         };
 
-        if (YourCharacter == characters.Joker) {
+        if (YourCharacter == characters.Joker.name) {
+            attackerHP = characters.Joker.healthPoints;
+            console.log(attackerHP);
+            attackerPW = characters.Joker.attackPW;
+            console.log(attackerPW);
+            attackerCT = characters.Joker.counter;
+            console.log(attackerCT);
 
         } else if (YourCharacter == characters.Ryuji) {
+            attackerHP = characters.Ryuji.healthPoints;
+            attackerPW = characters.Ryuji.attackPW;
+            attackerCT = characters.Ryuji.counter;
 
         } else if (YourCharacter == characters.Ann) {
+            attackerHP = characters.Ann.healthPoints
+            attackerPW = characters.Ann.attackPW;
+            attackerCT = characters.Ann.counter;
 
         } else if (YourCharacter == characters.Morgana) {
-
+            attackerHP = characters.Morgana.healthPoints;
+            attackerPW = characters.Morgana.attackPW;
+            attackerCT = characters.Morgana.counter;
         }
+
         for (var i = 0; i < 4; i++) {
             $("._" + [i]).not(myChar).appendTo("#enemy" + [i]);
         }
 
         $("#characters-selection").hide();
+        // console.log(YourCharacter.healthPoints);
 
     });
 
     $(".move").click(function () {
 
-        // if (myDef === "") {
-        // clones the chosen character to "Defender"
-        // moves that character to the "Defender" section on the page.
-        $(this).appendTo("#defender");
+        //if (myDef === "") {
+        $(this).appendTo("#yourDef");
         myDef = $(this);
         YourDefender = $(myDef).children().attr("value");
         console.log(YourDefender);
+        
 
         $(".youDefeated").empty();
 
-        if (YourDefender == characters.Joker) {
-            YourDefender.healthPoints = characters.Joker.healthPoints;
+        if (YourDefender == characters.Joker.name) {
+            defendername = characters.Joker.name
+            defenderHP = characters.Joker.healthPoints;
+            console.log(defenderHP);
+            defenderPW = characters.Joker.attackPW;
+            console.log(defenderPW);
+            defenderCT = characters.Joker.counter;
+            console.log(defenderCT);
 
-        } else if (YourDefender == characters.Ryuji) {
+        } else if (YourDefender == characters.Ryuji.name) {
+            defendername = characters.Ryuji.name
+            defenderHP = characters.Ryuji.healthPoints;
+            defenderPW = characters.Ryuji.attackPW;
+            defenderCT = characters.Ryuji.counter;
 
-        } else if (YourDefender == characters.Ann) {
+        } else if (YourDefender == characters.Ann.name) {
+            defendername = characters.Ann.name
+            defenderHP = characters.Ann.healthPoints;
+            defenderPW = characters.Ann.attackPW;
+            defenderCT = characters.Ann.counter;
 
-        } else if (YourDefender == characters.Morgana) {
+        } else if (YourDefender == characters.Morgana.name) {
+            defendername = characters.Morgana.name
+            defenderHP = characters.Morgana.healthPoints;
+            defenderPW = characters.Morgana.attackPW;
+            defenderCT = characters.Morgana.counter;
 
         }
-
-        console.log(YourDefender.healthPoints);
 
     });
 
@@ -127,30 +158,30 @@ $(document).ready(function () {
             $(".noEnemy").html("No enemy here.");
         }
 
-        if ((YourCharacter.healthPoints > 1) || (YourDefender.healthPoints > 1)) {
+        if ((attackerHP > 1) || (defenderHP > 1)) {
 
-            YourCharacter.healthPoints = (YourCharacter.healthPoints - YourDefender.counter);
+            attackerHP = (attackerHP - defenderCT);
 
-            $("." + YourCharacter + "hp").html(YourCharacter.healthPoints);
+            $("." + YourCharacter + "hp").html(attackerHP);
 
-            $(".youAttacked").html("You attacked " + YourDefender.name + " for " + YourCharacter.attackPW + " damage.");
+            $(".youAttacked").html("You attacked " + defendername + " for " + attackerPW + " damage.");
 
-            YourDefender.healthPoints = (YourDefender.healthPoints - YourCharacter.attackPW);
+            defenderHP = (defenderHP - attackerPW);
 
-            $(".attackedBack").html(YourDefender.name + " attacked you back for " + YourDefender.counter + " damage.");
+            $(".attackedBack").html(defendername + " attacked you back for " + defenderCT + " damage.");
 
-            $("." + YourDefender + "hp").html(YourDefender.healthPoints);
+            $("." + YourDefender + "hp").html(defenderHP);
 
-            YourCharacter.attackPW = (YourCharacter.attackPW + YourCharacter.attackPW);
+            attackerPW == (attackerPW + YourCharacter.attackPW);
 
         };
 
-        if (YourDefender.healthPoints <= 0) {
+        if (defenderHP <= 0) {
 
             $(".youAttacked").empty();
             $(".attackedBack").empty();
-            $(".youDefeated").html("You have defeated " + YourDefender.name + ", choose your next opponent!");
-            $("#defender").empty();
+            $(".youDefeated").html("You have defeated " + defendername + ", choose your next opponent!");
+            $("#yourDef").empty();
 
         }
 
@@ -174,7 +205,7 @@ $(document).ready(function () {
         }
 
         // character has no health you lose
-        if (YourCharacter.healthPoints <= 0) {
+        if (attackerHP <= 0) {
 
             $(".restartbtn").show();
 
@@ -183,7 +214,7 @@ $(document).ready(function () {
             $(".youAttacked").empty();
             $(".attackedBack").empty();
             $(".youDefeated").empty();
-            $(".youLose").html("GAME OVER!")
+            $(".youLose").html("GAME OVER!");
 
             $(".restartbtn").click(function () {
                 reset();
